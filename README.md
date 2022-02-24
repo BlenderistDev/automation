@@ -6,3 +6,4 @@ Package provides automation service with custom triggers, conditions and actions
 ````
 go get github.com/BlenderistDev/automation
 ````
+## Triggers

@@ -7,5 +7,5 @@ Package provides automation service with custom triggers, conditions and actions
 go get github.com/BlenderistDev/automation
 ````
 ## Triggers
-
+Trigger is a name of event to execute automation. Automation can have multiple triggers.
 ## Conditions

@@ -8,5 +8,5 @@ go get github.com/BlenderistDev/automation
 ````
 ## Triggers
 Trigger is a name of event to execute automation. Automation can have multiple triggers.
-## Conditions
+## Condition
 Automation can have only one condition.

@@ -13,3 +13,4 @@ Automation can have only one condition.
 You can make complex conditions with built-in conditions:
 * Or
 * And
+* Not

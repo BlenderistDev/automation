@@ -14,3 +14,5 @@ You can make complex conditions with built-in conditions:
 * Or
 * And
 * Not
+There are some other build-in useful conditions:
+* Equal

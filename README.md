@@ -19,3 +19,8 @@ There are some other build-in useful conditions:
 * Equal
 
 ## Actions
+Automation can have any count of actions.
+To implement action interface you should implement execute method.
+‘‘‘‘
+execute(Trigger trigger) error 
+‘‘‘‘

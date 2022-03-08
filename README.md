@@ -17,3 +17,5 @@ You can make complex conditions with built-in conditions:
 
 There are some other build-in useful conditions:
 * Equal
+
+## Actions

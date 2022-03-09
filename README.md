@@ -10,6 +10,12 @@ go get github.com/BlenderistDev/automation
 Trigger is a name of event to execute automation. Automation can have multiple triggers.
 ## Condition
 Automation can have only one condition.
+
+To implement condition interface you should implement check method
+````
+Check(trigger Trigger) (bool, error)
+````
+
 You can make complex conditions with built-in conditions:
 * Or
 * And

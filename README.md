@@ -6,6 +6,8 @@ Package provides automation service with custom triggers, conditions and actions
 ````
 go get github.com/BlenderistDev/automation
 ````
+## Automation
+Automation struct includes three entities: triggers, condition and actions.
 ## Triggers
 Trigger is a name of event to execute automation. Automation can have multiple triggers.
 ## Condition

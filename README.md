@@ -11,7 +11,7 @@ Automation struct includes three entities: triggers, condition and actions.
 ## Triggers
 Trigger is a name of event to execute automation. Automation can have multiple triggers.
 ## Condition
-Automation can have only one condition.
+Automation can have at most one condition.
 
 To implement condition interface you should implement check method
 ````

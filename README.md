@@ -8,7 +8,7 @@ go get github.com/BlenderistDev/automation
 ````
 ## Automation
 Automation struct includes three entities: triggers, condition and actions.
-## Triggers
+## Trigger
 Trigger is a name of event to execute automation. Automation can have multiple triggers.
 ## Condition
 Automation can have at most one condition.
@@ -26,7 +26,7 @@ You can make complex conditions with built-in conditions:
 There are some other build-in useful conditions:
 * Equal
 
-## Actions
+## Action
 Automation can have any count of actions.
 To implement action interface you should implement execute method
 ````

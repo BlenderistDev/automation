@@ -46,7 +46,7 @@ func TestService_Start(t *testing.T) {
 	service := Service{}
 	service.AddAutomation(automation)
 
-	triggerChan := make(chan interfaces.Trigger)
+	triggerChan := make(chan interfaces.TriggerEvent)
 	errChan := make(chan error)
 
 	go service.Start(triggerChan, errChan)
@@ -74,7 +74,7 @@ func TestService_Start_automationExecuteError(t *testing.T) {
 	service := Service{}
 	service.AddAutomation(automation)
 
-	triggerChan := make(chan interfaces.Trigger)
+	triggerChan := make(chan interfaces.TriggerEvent)
 	errChan := make(chan error)
 
 	go service.Start(triggerChan, errChan)
@@ -102,7 +102,7 @@ func TestService_Start_NoAutomationForTrigger(t *testing.T) {
 	service := Service{}
 	service.AddAutomation(automation)
 
-	triggerChan := make(chan interfaces.Trigger)
+	triggerChan := make(chan interfaces.TriggerEvent)
 	errChan := make(chan error)
 
 	go service.Start(triggerChan, errChan)

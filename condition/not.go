@@ -14,7 +14,7 @@ func CreateNotCondition(condition interfaces.Condition) interfaces.Condition {
 	}
 }
 
-func (c notCondition) Check(trigger interfaces.Trigger) (bool, error) {
+func (c notCondition) Check(trigger interfaces.TriggerEvent) (bool, error) {
 	res, err := c.subCondition.Check(trigger)
 	if err != nil {
 		return false, err

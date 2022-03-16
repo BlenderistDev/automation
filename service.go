@@ -10,7 +10,7 @@ type Service struct {
 }
 
 // Start launch automation service
-func (s *Service) Start(triggerChan chan interfaces.Trigger, errChan chan error) {
+func (s *Service) Start(triggerChan chan interfaces.TriggerEvent, errChan chan error) {
 	for {
 		trigger := <-triggerChan
 		err := s.handleTrigger(trigger)
@@ -29,14 +29,14 @@ func (s *Service) AddAutomation(automation interfaces.Automation) {
 	}
 }
 
-func (s *Service) handleTrigger(trigger interfaces.Trigger) error {
+func (s *Service) handleTrigger(trigger interfaces.TriggerEvent) error {
 	triggerName := trigger.GetName()
 	automationList := s.list[triggerName]
 	if automationList == nil {
 		return fmt.Errorf("no automation for trigger %s", triggerName)
 	}
 	for _, automation := range automationList {
-		fmt.Printf("Trigger with type %s\n", triggerName)
+		fmt.Printf("TriggerEvent with type %s\n", triggerName)
 		err := automation.Execute(trigger)
 		if err != nil {
 			return err

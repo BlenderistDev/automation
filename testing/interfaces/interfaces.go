@@ -11,7 +11,7 @@ import (
 	gomock "github.com/golang/mock/gomock"
 )
 
-// MockTrigger is a mock of Trigger interface.
+// MockTrigger is a mock of TriggerEvent interface.
 type MockTrigger struct {
 	ctrl     *gomock.Controller
 	recorder *MockTriggerMockRecorder
@@ -86,7 +86,7 @@ func (m *MockCondition) EXPECT() *MockConditionMockRecorder {
 }
 
 // Check mocks base method.
-func (m *MockCondition) Check(trigger interfaces.Trigger) (bool, error) {
+func (m *MockCondition) Check(trigger interfaces.TriggerEvent) (bool, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Check", trigger)
 	ret0, _ := ret[0].(bool)
@@ -124,7 +124,7 @@ func (m *MockAction) EXPECT() *MockActionMockRecorder {
 }
 
 // Execute mocks base method.
-func (m *MockAction) Execute(trigger interfaces.Trigger) error {
+func (m *MockAction) Execute(trigger interfaces.TriggerEvent) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Execute", trigger)
 	ret0, _ := ret[0].(error)
@@ -197,7 +197,7 @@ func (mr *MockAutomationMockRecorder) AddTrigger(trigger interface{}) *gomock.Ca
 }
 
 // Execute mocks base method.
-func (m *MockAutomation) Execute(trigger interfaces.Trigger) error {
+func (m *MockAutomation) Execute(trigger interfaces.TriggerEvent) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Execute", trigger)
 	ret0, _ := ret[0].(error)

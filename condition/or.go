@@ -19,7 +19,7 @@ func CreateOrCondition(subConditions []interfaces.Condition) (interfaces.Conditi
 	}, nil
 }
 
-func (c orCondition) Check(trigger interfaces.Trigger) (bool, error) {
+func (c orCondition) Check(trigger interfaces.TriggerEvent) (bool, error) {
 	res := false
 	for _, subCondition := range c.subConditions {
 		subRes, err := subCondition.Check(trigger)

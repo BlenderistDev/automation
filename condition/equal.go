@@ -15,7 +15,7 @@ func CreateEqualCondition(dataMapper datamapper.DataMapper) interfaces.Condition
 	}
 }
 
-func (c equalCondition) Check(trigger interfaces.Trigger) (bool, error) {
+func (c equalCondition) Check(trigger interfaces.TriggerEvent) (bool, error) {
 	value1, err := c.dm.GetFromMap(trigger.GetData(), "value1")
 	if err != nil {
 		return false, err

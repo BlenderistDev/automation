@@ -16,7 +16,7 @@ func GetAutomation() interfaces.Automation {
 	return &automation{}
 }
 
-func (a *automation) Execute(trigger interfaces.Trigger) error {
+func (a *automation) Execute(trigger interfaces.TriggerEvent) error {
 	if a.condition != nil {
 		checkRes, err := a.checkCondition(trigger)
 		if err != nil {
@@ -49,7 +49,7 @@ func (a *automation) AddCondition(condition interfaces.Condition) {
 	a.condition = condition
 }
 
-func (a *automation) checkCondition(trigger interfaces.Trigger) (bool, error) {
+func (a *automation) checkCondition(trigger interfaces.TriggerEvent) (bool, error) {
 	res, err := a.condition.Check(trigger)
 	if err != nil {
 		return false, err
@@ -57,7 +57,7 @@ func (a *automation) checkCondition(trigger interfaces.Trigger) (bool, error) {
 	return res, nil
 }
 
-func (a *automation) executeActions(trigger interfaces.Trigger) error {
+func (a *automation) executeActions(trigger interfaces.TriggerEvent) error {
 	for _, action := range a.actions {
 		err := action.Execute(trigger)
 		if err != nil {

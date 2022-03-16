@@ -8,6 +8,8 @@ go get github.com/BlenderistDev/automation
 ````
 ## Automation
 Automation struct includes three entities: triggers, condition and actions.
+
+If there is trigger event name in automation triggers list and if condition returns true (or there's no condition) automation actions execute.
 ## Trigger
 Trigger is a name of event to execute automation. Automation can have multiple triggers.
 ## Condition

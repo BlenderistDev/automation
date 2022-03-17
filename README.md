@@ -48,3 +48,5 @@ GetData method returns event data. Map keys is used as variable name and map val
 ````
 GetData() map[string]string
 ````
+
+## Testing

@@ -50,3 +50,4 @@ GetData() map[string]string
 ````
 
 ## Testing
+Package is fully test covered.

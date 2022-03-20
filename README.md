@@ -51,3 +51,5 @@ GetData() map[string]string
 
 ## Testing
 Package is fully test covered.
+
+To use interface mocks you need to install gomock dependency

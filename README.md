@@ -52,4 +52,10 @@ GetData() map[string]string
 ## Testing
 Package is fully test covered.
 
-To use interface mocks you need to install gomock dependency
+To use interface mocks you need to install gomock dependency.
+
+You can add mocks by import
+
+````
+import("github.com/BlenderistDev/automation/testing/interfaces")
+````

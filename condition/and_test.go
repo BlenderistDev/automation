@@ -2,11 +2,12 @@ package condition
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/BlenderistDev/automation/dry"
 	"github.com/BlenderistDev/automation/interfaces"
 	mock_interfaces "github.com/BlenderistDev/automation/testing/interfaces"
 	"github.com/golang/mock/gomock"
-	"testing"
 )
 
 func TestAndCondition_createAndCondition(t *testing.T) {

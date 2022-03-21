@@ -11,31 +11,31 @@ import (
 	gomock "github.com/golang/mock/gomock"
 )
 
-// MockTrigger is a mock of TriggerEvent interface.
-type MockTrigger struct {
+// MockTriggerEvent is a mock of TriggerEvent interface.
+type MockTriggerEvent struct {
 	ctrl     *gomock.Controller
-	recorder *MockTriggerMockRecorder
+	recorder *MockTriggerEventMockRecorder
 }
 
-// MockTriggerMockRecorder is the mock recorder for MockTrigger.
-type MockTriggerMockRecorder struct {
-	mock *MockTrigger
+// MockTriggerEventMockRecorder is the mock recorder for MockTriggerEvent.
+type MockTriggerEventMockRecorder struct {
+	mock *MockTriggerEvent
 }
 
-// NewMockTrigger creates a new mock instance.
-func NewMockTrigger(ctrl *gomock.Controller) *MockTrigger {
-	mock := &MockTrigger{ctrl: ctrl}
-	mock.recorder = &MockTriggerMockRecorder{mock}
+// NewMockTriggerEvent creates a new mock instance.
+func NewMockTriggerEvent(ctrl *gomock.Controller) *MockTriggerEvent {
+	mock := &MockTriggerEvent{ctrl: ctrl}
+	mock.recorder = &MockTriggerEventMockRecorder{mock}
 	return mock
 }
 
 // EXPECT returns an object that allows the caller to indicate expected use.
-func (m *MockTrigger) EXPECT() *MockTriggerMockRecorder {
+func (m *MockTriggerEvent) EXPECT() *MockTriggerEventMockRecorder {
 	return m.recorder
 }
 
 // GetData mocks base method.
-func (m *MockTrigger) GetData() map[string]string {
+func (m *MockTriggerEvent) GetData() map[string]string {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetData")
 	ret0, _ := ret[0].(map[string]string)
@@ -43,13 +43,13 @@ func (m *MockTrigger) GetData() map[string]string {
 }
 
 // GetData indicates an expected call of GetData.
-func (mr *MockTriggerMockRecorder) GetData() *gomock.Call {
+func (mr *MockTriggerEventMockRecorder) GetData() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetData", reflect.TypeOf((*MockTrigger)(nil).GetData))
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetData", reflect.TypeOf((*MockTriggerEvent)(nil).GetData))
 }
 
 // GetName mocks base method.
-func (m *MockTrigger) GetName() string {
+func (m *MockTriggerEvent) GetName() string {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetName")
 	ret0, _ := ret[0].(string)
@@ -57,9 +57,9 @@ func (m *MockTrigger) GetName() string {
 }
 
 // GetName indicates an expected call of GetName.
-func (mr *MockTriggerMockRecorder) GetName() *gomock.Call {
+func (mr *MockTriggerEventMockRecorder) GetName() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetName", reflect.TypeOf((*MockTrigger)(nil).GetName))
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetName", reflect.TypeOf((*MockTriggerEvent)(nil).GetName))
 }
 
 // MockCondition is a mock of Condition interface.

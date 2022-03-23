@@ -2,12 +2,13 @@ package automation
 
 import (
 	"fmt"
+	"testing"
+	"time"
+
 	"github.com/BlenderistDev/automation/dry"
 	"github.com/BlenderistDev/automation/interfaces"
 	mock_interfaces "github.com/BlenderistDev/automation/testing/interfaces"
 	"github.com/golang/mock/gomock"
-	"testing"
-	"time"
 )
 
 func TestService_AddAutomation(t *testing.T) {
@@ -36,7 +37,7 @@ func TestService_Start(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 	trigger.EXPECT().GetName().Return(t1)
 
 	automation := mock_interfaces.NewMockAutomation(ctrl)
@@ -64,7 +65,7 @@ func TestService_Start_automationExecuteError(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 	trigger.EXPECT().GetName().Return(t1)
 
 	automation := mock_interfaces.NewMockAutomation(ctrl)
@@ -93,7 +94,7 @@ func TestService_Start_NoAutomationForTrigger(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 	trigger.EXPECT().GetName().Return(t1)
 
 	automation := mock_interfaces.NewMockAutomation(ctrl)

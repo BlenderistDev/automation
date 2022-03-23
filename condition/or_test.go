@@ -2,11 +2,12 @@ package condition
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/BlenderistDev/automation/dry"
 	"github.com/BlenderistDev/automation/interfaces"
 	mock_interfaces "github.com/BlenderistDev/automation/testing/interfaces"
 	"github.com/golang/mock/gomock"
-	"testing"
 )
 
 func TestOrCondition_createOrCondition(t *testing.T) {
@@ -46,7 +47,7 @@ func TestOrCondition_SetConditions_checkResult(t *testing.T) {
 func testOrConditionCheckWithSubCondition(t *testing.T, res1, res2 bool) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 	subCondition1 := mock_interfaces.NewMockCondition(ctrl)
 	subCondition2 := mock_interfaces.NewMockCondition(ctrl)
 
@@ -74,7 +75,7 @@ func TestOrCondition_SubConditionError(t *testing.T) {
 
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 	subCondition1 := mock_interfaces.NewMockCondition(ctrl)
 	subCondition2 := mock_interfaces.NewMockCondition(ctrl)
 

@@ -2,18 +2,19 @@ package core
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/BlenderistDev/automation/dry"
 	"github.com/BlenderistDev/automation/interfaces"
 	mock_interfaces "github.com/BlenderistDev/automation/testing/interfaces"
 	"github.com/golang/mock/gomock"
-	"testing"
 )
 
 func TestAutomation_ExecuteNoCondition(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 
 	action := mock_interfaces.NewMockAction(ctrl)
 	action.
@@ -32,7 +33,7 @@ func TestAutomation_ExecuteManyActions(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 
 	action1 := mock_interfaces.NewMockAction(ctrl)
 	action1.
@@ -56,7 +57,7 @@ func TestAutomation_ExecuteWithConditionTrue(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 
 	action := mock_interfaces.NewMockAction(ctrl)
 	action.
@@ -81,7 +82,7 @@ func TestAutomation_ExecuteWithConditionFalse(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 
 	action := mock_interfaces.NewMockAction(ctrl)
 
@@ -103,7 +104,7 @@ func TestAutomation_ExecuteWithConditionError(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 
 	action := mock_interfaces.NewMockAction(ctrl)
 
@@ -125,7 +126,7 @@ func TestAutomation_ExecuteWithActionError(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 
 	actionError := "some error"
 	action := mock_interfaces.NewMockAction(ctrl)

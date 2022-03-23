@@ -42,7 +42,7 @@ func TestAndCondition_SubConditionError(t *testing.T) {
 
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 	subCondition1 := mock_interfaces.NewMockCondition(ctrl)
 	subCondition2 := mock_interfaces.NewMockCondition(ctrl)
 
@@ -75,7 +75,7 @@ func TestAndCondition_SetConditions_checkResult(t *testing.T) {
 func testAndConditionCheckWithSubCondition(t *testing.T, res1, res2 bool) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 	subCondition1 := mock_interfaces.NewMockCondition(ctrl)
 	subCondition2 := mock_interfaces.NewMockCondition(ctrl)
 

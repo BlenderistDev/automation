@@ -2,12 +2,13 @@ package condition
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/BlenderistDev/automation/datamapper"
 	"github.com/BlenderistDev/automation/dry"
 	mock_datamapper "github.com/BlenderistDev/automation/testing/datamapper"
 	mock_interfaces "github.com/BlenderistDev/automation/testing/interfaces"
 	"github.com/golang/mock/gomock"
-	"testing"
 )
 
 func TestEqualCondition(t *testing.T) {
@@ -58,7 +59,7 @@ func TestEqualCondition_Check(t *testing.T) {
 		"value2": m2,
 	}
 
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 	trigger.EXPECT().GetData().Return(make(map[string]string))
 	trigger.EXPECT().GetData().Return(make(map[string]string))
 
@@ -73,7 +74,7 @@ func TestEqualCondition_Check(t *testing.T) {
 func TestEqualCondition_Check_value1NotExist(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 	trigger.EXPECT().GetData().Return(make(map[string]string))
 
 	m := mock_datamapper.NewMockMapping(ctrl)
@@ -91,7 +92,7 @@ func TestEqualCondition_Check_value1NotExist(t *testing.T) {
 func TestEqualCondition_Check_value2NotExist(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
-	trigger := mock_interfaces.NewMockTrigger(ctrl)
+	trigger := mock_interfaces.NewMockTriggerEvent(ctrl)
 	trigger.EXPECT().GetData().Return(make(map[string]string))
 	trigger.EXPECT().GetData().Return(make(map[string]string))
 

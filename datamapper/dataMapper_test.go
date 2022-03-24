@@ -1,12 +1,13 @@
 package datamapper
 
 import (
-	"github.com/BlenderistDev/automation/dry"
-	mock_datamapper "github.com/BlenderistDev/automation/testing/datamapper"
-	"github.com/golang/mock/gomock"
 	"math"
 	"strconv"
 	"testing"
+
+	"github.com/BlenderistDev/automation/dry"
+	mock_datamapper "github.com/BlenderistDev/automation/testing/datamapper"
+	"github.com/golang/mock/gomock"
 )
 
 func TestGetFromMap_simpleMapping(t *testing.T) {

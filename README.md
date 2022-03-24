@@ -52,7 +52,7 @@ GetData() map[string]string
 ## Testing
 Package is fully test covered.
 
-To use interface mocks you need to install gomock dependency.
+To use interface mocks you need to install [gomock](https://github.com/golang/mock) dependency.
 
 You can add mocks by import:
 

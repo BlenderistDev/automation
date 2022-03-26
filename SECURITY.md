@@ -8,4 +8,4 @@
 | < 0.0.3 | :x:                |
 
 ## Reporting a Vulnerability
-You can report a Vulnerability by creating issue&
+You can report a Vulnerability by creating issue

@@ -16,7 +16,7 @@ Trigger is a name of event to execute automation. Automation can have multiple t
 Automation can have at most one condition.
 Automation actions will execute if it has no condition or condition check method will return true.
 
-To implement condition interface you should implement check method
+To implement condition interface you should implement check method:
 ````
 Check(trigger Trigger) (bool, error)
 ````

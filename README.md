@@ -32,7 +32,7 @@ There are some other build-in useful conditions:
 ## Action
 Automation can have at least one action.
 
-To implement action interface you should implement execute method
+To implement action interface you should implement execute method:
 ````
 execute(Trigger trigger) error 
 ````

@@ -17,6 +17,7 @@ func GetAutomation() interfaces.Automation {
 	return &automation{}
 }
 
+// Execute execute automation
 func (a *automation) Execute(trigger interfaces.TriggerEvent) error {
 	if a.condition != nil {
 		checkRes, err := a.checkCondition(trigger)
@@ -34,18 +35,22 @@ func (a *automation) Execute(trigger interfaces.TriggerEvent) error {
 	return nil
 }
 
+// AddTrigger add trigger to automation
 func (a *automation) AddTrigger(trigger string) {
 	a.triggers = append(a.triggers, trigger)
 }
 
+// GetTriggers return automation triggers
 func (a *automation) GetTriggers() []string {
 	return a.triggers
 }
 
+// AddAction add action to automation
 func (a *automation) AddAction(action interfaces.Action) {
 	a.actions = append(a.actions, action)
 }
 
+// AddCondition add condition to automation
 func (a *automation) AddCondition(condition interfaces.Condition) {
 	a.condition = condition
 }

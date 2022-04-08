@@ -2,9 +2,11 @@ package automation
 
 import (
 	"fmt"
+
 	"github.com/BlenderistDev/automation/interfaces"
 )
 
+// Service automation service
 type Service struct {
 	list map[string][]interfaces.Automation
 }
@@ -20,6 +22,7 @@ func (s *Service) Start(triggerChan chan interfaces.TriggerEvent, errChan chan e
 	}
 }
 
+// AddAutomation add automation to service
 func (s *Service) AddAutomation(automation interfaces.Automation) {
 	if len(s.list) == 0 {
 		s.list = make(map[string][]interfaces.Automation)

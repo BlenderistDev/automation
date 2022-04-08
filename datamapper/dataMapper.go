@@ -6,15 +6,18 @@ import (
 	"strconv"
 )
 
+//Mapping interface for mapping.
 type Mapping interface {
 	IsSimple() bool
 	GetValue() string
 }
 
+// DataMapper container for mappings
 type DataMapper struct {
 	Mapping map[string]Mapping
 }
 
+// GetFromMapInt64 return int64 value from mapping
 func (a DataMapper) GetFromMapInt64(data map[string]string, key string) (int64, error) {
 	s, err := a.GetFromMap(data, key)
 	if err != nil {
@@ -29,6 +32,7 @@ func (a DataMapper) GetFromMapInt64(data map[string]string, key string) (int64, 
 	return i, nil
 }
 
+// GetFromMapInt32 return int32 value from mapping
 func (a DataMapper) GetFromMapInt32(data map[string]string, key string) (int32, error) {
 	i, err := a.GetFromMapInt64(data, key)
 	if i > math.MaxInt32 {
@@ -37,6 +41,7 @@ func (a DataMapper) GetFromMapInt32(data map[string]string, key string) (int32, 
 	return int32(i), err
 }
 
+// GetFromMap return string value from mapping
 func (a DataMapper) GetFromMap(data map[string]string, key string) (string, error) {
 	mappingData, ok := a.Mapping[key]
 	if ok {
@@ -55,6 +60,7 @@ func (a DataMapper) GetFromMap(data map[string]string, key string) (string, erro
 	return "", fmt.Errorf("key %s not found", key)
 }
 
+// GetFromMapBool return bool value from mapping. Only empty string consider as false.
 func (a DataMapper) GetFromMapBool(data map[string]string, key string) (bool, error) {
 	s, err := a.GetFromMap(data, key)
 	if err != nil {

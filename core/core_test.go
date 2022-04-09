@@ -8,6 +8,7 @@ import (
 	"github.com/BlenderistDev/automation/interfaces"
 	mock_interfaces "github.com/BlenderistDev/automation/testing/interfaces"
 	"github.com/golang/mock/gomock"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestAutomation_ExecuteNoCondition(t *testing.T) {
@@ -26,7 +27,7 @@ func TestAutomation_ExecuteNoCondition(t *testing.T) {
 	automation := automation{actions: actions}
 
 	err := automation.Execute(trigger)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 }
 
 func TestAutomation_ExecuteManyActions(t *testing.T) {
@@ -50,7 +51,7 @@ func TestAutomation_ExecuteManyActions(t *testing.T) {
 	automation := automation{actions: actions}
 
 	err := automation.Execute(trigger)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 }
 
 func TestAutomation_ExecuteWithConditionTrue(t *testing.T) {
@@ -75,7 +76,7 @@ func TestAutomation_ExecuteWithConditionTrue(t *testing.T) {
 	automation := automation{actions: actions, condition: condition}
 
 	err := automation.Execute(trigger)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 }
 
 func TestAutomation_ExecuteWithConditionFalse(t *testing.T) {
@@ -97,7 +98,7 @@ func TestAutomation_ExecuteWithConditionFalse(t *testing.T) {
 	automation := automation{actions: actions, condition: condition}
 
 	err := automation.Execute(trigger)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 }
 
 func TestAutomation_ExecuteWithConditionError(t *testing.T) {

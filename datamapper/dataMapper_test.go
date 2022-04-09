@@ -8,6 +8,7 @@ import (
 	"github.com/BlenderistDev/automation/dry"
 	mock_datamapper "github.com/BlenderistDev/automation/testing/datamapper"
 	"github.com/golang/mock/gomock"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestGetFromMap_simpleMapping(t *testing.T) {
@@ -21,7 +22,7 @@ func TestGetFromMap_simpleMapping(t *testing.T) {
 	datamapper := DataMapper{Mapping: mapping}
 
 	mapValue, err := datamapper.GetFromMap(make(map[string]string), "name")
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 	dry.TestCheckEqual(t, value, mapValue)
 }
 
@@ -41,7 +42,7 @@ func TestGetFromMap_notSimpleMapping(t *testing.T) {
 	}
 
 	mapValue, err := datamapper.GetFromMap(data, name)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 	dry.TestCheckEqual(t, resultValue, mapValue)
 }
 
@@ -58,7 +59,7 @@ func TestGetFromInt32_simpleMapping(t *testing.T) {
 
 	data := make(map[string]string)
 	mapValue, err := datamapper.GetFromMapInt32(data, "name")
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 	dry.TestCheckEqual(t, valueInt, mapValue)
 }
 
@@ -93,7 +94,7 @@ func TestGetFromMapInt32_notSimpleMapping(t *testing.T) {
 		"value": resultValue,
 	}
 	mapValue, err := datamapper.GetFromMapInt32(data, name)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 	dry.TestCheckEqual(t, resultValueInt, mapValue)
 }
 
@@ -110,7 +111,7 @@ func TestGetFromInt64_simpleMapping(t *testing.T) {
 
 	data := make(map[string]string)
 	mapValue, err := datamapper.GetFromMapInt64(data, name)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 	dry.TestCheckEqual(t, valueInt, mapValue)
 }
 
@@ -130,7 +131,7 @@ func TestGetFromMapInt64_notSimpleMapping(t *testing.T) {
 		"value": resultValue,
 	}
 	mapValue, err := datamapper.GetFromMapInt64(data, name)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 
 	if mapValue != resultValueInt {
 		t.Errorf("expected: %d, actual: %d", resultValueInt, mapValue)
@@ -218,7 +219,7 @@ func testGetFromBool_simpleMapping(t *testing.T, value string, res bool) {
 
 	data := make(map[string]string)
 	mapValue, err := datamapper.GetFromMapBool(data, name)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 	dry.TestCheckEqual(t, res, mapValue)
 }
 

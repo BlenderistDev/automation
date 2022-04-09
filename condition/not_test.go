@@ -7,6 +7,7 @@ import (
 	"github.com/BlenderistDev/automation/dry"
 	mock_interfaces "github.com/BlenderistDev/automation/testing/interfaces"
 	"github.com/golang/mock/gomock"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestNotCondition_createNotCondition(t *testing.T) {
@@ -65,6 +66,6 @@ func testNotConditionCheckWithSubCondition(t *testing.T, subConditionRes bool) {
 	createdCondition := CreateNotCondition(subCondition)
 
 	res, err := createdCondition.Check(trigger)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 	dry.TestCheckEqual(t, !subConditionRes, res)
 }

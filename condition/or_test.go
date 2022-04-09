@@ -8,6 +8,7 @@ import (
 	"github.com/BlenderistDev/automation/interfaces"
 	mock_interfaces "github.com/BlenderistDev/automation/testing/interfaces"
 	"github.com/golang/mock/gomock"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestOrCondition_createOrCondition(t *testing.T) {
@@ -18,7 +19,7 @@ func TestOrCondition_createOrCondition(t *testing.T) {
 
 	subConditions := []interfaces.Condition{subCondition1, subCondition2}
 	createdCondition, err := CreateOrCondition(subConditions)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 
 	switch condition := createdCondition.(type) {
 	case orCondition:
@@ -63,10 +64,10 @@ func testOrConditionCheckWithSubCondition(t *testing.T, res1, res2 bool) {
 
 	subConditions := []interfaces.Condition{subCondition1, subCondition2}
 	createdCondition, err := CreateOrCondition(subConditions)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 
 	res, err := createdCondition.Check(trigger)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 	dry.TestCheckEqual(t, res1 || res2, res)
 }
 
@@ -91,7 +92,7 @@ func TestOrCondition_SubConditionError(t *testing.T) {
 
 	subConditions := []interfaces.Condition{subCondition1, subCondition2}
 	createdCondition, err := CreateOrCondition(subConditions)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 
 	res, err := createdCondition.Check(trigger)
 	dry.TestCheckEqual(t, false, res)

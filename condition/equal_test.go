@@ -9,6 +9,7 @@ import (
 	mock_datamapper "github.com/BlenderistDev/automation/testing/datamapper"
 	mock_interfaces "github.com/BlenderistDev/automation/testing/interfaces"
 	"github.com/golang/mock/gomock"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestEqualCondition(t *testing.T) {
@@ -67,7 +68,7 @@ func TestEqualCondition_Check(t *testing.T) {
 	createdCondition := CreateEqualCondition(dm)
 
 	res, err := createdCondition.Check(trigger)
-	dry.TestHandleError(t, err)
+	assert.Nil(t, err)
 	dry.TestCheckEqual(t, true, res)
 }
 

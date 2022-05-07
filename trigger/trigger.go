@@ -18,6 +18,9 @@ func (t *Trigger) GetName() string {
 
 // SetData sets trigger data for specified key
 func (t *Trigger) SetData(key, val string) {
+	if t.data == nil {
+		t.data = make(map[string]string)
+	}
 	t.data[key] = val
 }
 
@@ -33,6 +36,9 @@ func (t *Trigger) GetFromData(key string) string {
 
 // SetMeta sets trigger metadata for specified key
 func (t *Trigger) SetMeta(key, val string) {
+	if t.meta == nil {
+		t.meta = make(map[string]string)
+	}
 	t.meta[key] = val
 }
 

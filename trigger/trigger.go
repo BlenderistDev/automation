@@ -1,5 +1,6 @@
 package trigger
 
+// Trigger struct for TriggerEvent implementation
 type Trigger struct {
 	name string
 	data map[string]string

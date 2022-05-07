@@ -48,6 +48,20 @@ func (mr *MockTriggerEventMockRecorder) GetData() *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetData", reflect.TypeOf((*MockTriggerEvent)(nil).GetData))
 }
 
+// GetFromMeta mocks base method.
+func (m *MockTriggerEvent) GetFromMeta(key string) string {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetFromMeta", key)
+	ret0, _ := ret[0].(string)
+	return ret0
+}
+
+// GetFromMeta indicates an expected call of GetFromMeta.
+func (mr *MockTriggerEventMockRecorder) GetFromMeta(key interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetFromMeta", reflect.TypeOf((*MockTriggerEvent)(nil).GetFromMeta), key)
+}
+
 // GetName mocks base method.
 func (m *MockTriggerEvent) GetName() string {
 	m.ctrl.T.Helper()
